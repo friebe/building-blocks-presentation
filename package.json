@@ -1,0 +1,19 @@
+{
+  "name": "components-for-structured-code-versioning",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "build": "slidev build",
+    "dev": "slidev --open",
+    "export": "slidev export"
+  },
+  "dependencies": {
+    "@slidev/cli": "^0.49.0-beta.2",
+    "@slidev/theme-default": "latest",
+    "@slidev/theme-seriph": "latest",
+    "seedrandom": "^3.0.5",
+    "vue": "^3.4.21",
+    "@types/seedrandom": "^3.0.8",
+    "@iconify/json": "^2.2.188"
+  }
+}

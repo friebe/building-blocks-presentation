@@ -2,20 +2,24 @@
 layout: cover
 mdc: true
 transition: fade-out
-growSeed: 4
+growSeed: 3
 title: Components for building structured code versioning 
 ---
 
 # Components for building structured code versioning
 
-Ensuring Stability and Efficiency
-
+Ensuring stability and efficiency
 
 ---
 growSeed: 5
 layout: two-cols
 layoutClass: flex items-center
 ---
+
+<!--
+Okayish Cliffhanger:
+In the morning I saw by chance already existing articles in Confluence, so I think a few strategies are also known, so this presentation serves more or less the awareness of the importance for these strategy or mythology's
+-->
 
 <template v-slot:default>
 
@@ -26,10 +30,11 @@ layoutClass: flex items-center
 
 # Jan Friebe
 
-<div class="leading-10 opacity-80">
+- 32 years old
+- live in NRW
+
 Full Stack developer with passion for Frontend stuff<br>
 JavaScript/TypeScript // Vue // React // CSS // Design<br>
-</div>
 
 <div my-10 w-min flex="~ gap-1" items-center justify-center>
   <div i-ri-user-3-line op50 ma text-xl />
@@ -43,24 +48,24 @@ JavaScript/TypeScript // Vue // React // CSS // Design<br>
 
 <!--
 A short intro from myself...I
+For more information about me you can follow these contact icons :)
 -->
 
 ---
 ---
 # The main blocks at a glance
 
-- Branch strategy
-- Branch naming
-- Approval System
-- Semantic commit Messages
-- Tags
-- Lifecycle examples - short summary
+1. Branch strategy
+2. Branch naming
+3. Approval System
+4. Semantic commit message
+5. Tags
+6. Lifecycle examples
 
 <!-- 
-This are a few or at least the best topics (in my oppinion) to implement structured and efficiency code versioning in teams to discuss, so lets have a look what these blocks means.
-But ine hint you can also use this components if are a one man show. It is a general approach for all devs. Ok, lets go to the first one...
+These are some or at least the best topics (in my opinion) to implement structured and efficient code versioning in teams, so let's take a look at what these blocks mean.
+But one hint you can also use this components if are a one man show. It is a general approach for all devs. Ok, lets go...
 -->
-
 
 ---
 layout: cover
@@ -74,7 +79,7 @@ layout: cover
 
 <!-- What exactly does it mean ?
 Well, the One branch strategy means you have only one branch (mostly named main) to work on for everything like features, bugs, releases, hotfixes and so on. For example if you are working in a team every developer works on this branch and do pulls, pushes and commit changes every day...
-So perhaps you can already guess why it's not a good idea to have only one, but anyway i will show you the disadvantages the next slides -->
+So perhaps you can already guess why it's not a good idea to have only one, but anyway i will show you the disadvantages on the next slide -->
 
 
 ---
@@ -89,11 +94,12 @@ So perhaps you can already guess why it's not a good idea to have only one, but 
 
 <!-- 
 To work with only one have many disadvantages and here a are few.
-I think every developer knows the first point if multiple team members work at the same time on different features and anyone change a function which your code depends on. So the first one whose check in their code wins. So it can bring conflicts at some point in differnet ways.
 
-The next one says it can be callenging to trace changes or reconstruct the code base if anything is broken, because maybe there are also new features in the main so a easy rollback can be difficult and time consuming.
+I think every developer knows the first point, when several team members are working on different functions at the same time and someone changes a function that your code depends on. Then whoever checks-in their code first wins. This can eventually lead to conflicts and other time consuming side effects in different ways.
 
-I think these point is explained very well by the previous one. It is difficult to separate features or bugs in only one branch. So a deploying is delayed and not so fast as it should be.
+The next one says it can be callenging to trace changes or reconstruct the code base if anything is broken, because maybe there are also new features in the main, so a easy rollback isnt easy anymore.
+
+I think these nex point is explained very well by the previous one. It is difficult to separate features or bugs in only one branch. So a deploying is delayed and not so fast as it should be.
 
 And to conclude, a single branch restricts you enormously and reduces efficiency, because you always have to watch what you are doing if you deliver your changes. 
 
@@ -105,25 +111,29 @@ layout: cover
 ---
 # Multiple branches strategy (feature branches)
 
+- dev (developmet - feature, refactoring, bug(no hotfixes), docu changes...)
 - main (customer build - snapshot like)
-- dev (developmet - features, refactorings - )
 
 <span v-click v-mark.highlight.lime.op8.delay200 inline-block p3 mx--2>For all new features, bugs, tests, experiments and so on you should create an isolated new branch!</span>
 
 
 <!--
-So what is the multiple branch strategy. Well its easy, work with feature branches!
-But one step back, first we look on the beginning of the strategy.
+As the name says here we have two important branches to branch off.
+But I will go one step back, first we should look on the beginning of the strategy and understand ist completely.
 
-So the DEV branch represents the status of active development. It includes new feautres, refactorings, rewrites and so on. So everytime u develop new things or make things that customers should not see yet because it is a future task or so, u branch off from DEV. Furthermore it could be that the dev branch is not stable.
-In summary the DEV branch is the "playground" for devs and nobody should be afraid to make anything wrong. One hint here, the dev branch is not delivered to the open world, so feel free to play with. ;) 
+So the DEV branch represents the status of active development. It includes new feautures , code refactoring, rewrites and so on.
 
-So on the oppsite there is the Main branch which is the delivered build to the customers or the image for reference in other products as dependency. When we make an hotfix for example we should branch off from Main.
+So everytime u develop new things or make things that customers should not see yet because it is a future task or so, u branch off from DEV. Furthermore it could also be that the dev branch is not stable and thats ok for some time. In summary the DEV branch is the "playground" for all devs and nobody should be afraid to make anything wrong. One hint here, the dev branch is not delivered to the open world, so feel free to play with. ;) 
 
-Click
+But don't get me wrong, if there is an automatic test deployment action behind the dev branch, then the branch should already be stable so that nobody gets into trouble.
+
+And on the oppsite stands the Main branch which is the delivered build to the customers or the image for reference in other products as dependency. When we make an hotfix for example we should branch off from Main. And this should be ever ever be stable :)
+
+Click - So, one golden rule is....
 
 Maybe you have in mind now....
-Oh, damn, now we have a huge pile of different branches and don't even know which one is for what anymore. And ask u, how can i keep an overview of all this ?
+Oh, damn, now we have a huge pile of different branches and don't even know which one is for what anymore. You also ask u, how can i keep an overview of all this ?
+
 Well, short answer here is categorize it!
 -->
 
@@ -143,14 +153,12 @@ layout: cover
 <div v-click delay200="1" origin-top-left rotate-12 i-emojione-monotone:thinking-face w-5em h-5em absolute top-25 right-25></div>
 
 <!--
-Here you can see some categories that I find useful and that have more or less become established in the open source sector to structure branch names. 
+Here you can see some categories that I find useful and that have more or less become established in the open source sector as well. You see a list of the prefixes or the groups that you add to your branches for a specific purpose.
 
-You may think now what, i dont get it, what do u mean by this... 
-Ok, so here u see a list of the prefixes or the groups that you add to your branches for a specific purpose. 
-
-Click
+CLICK
 
 Confused, in the next step, I'll show you an example of what it might look like
+Ok, so here u see  
 -->
 
 ---
@@ -166,7 +174,7 @@ Confused, in the next step, I'll show you an example of what it might look like
 
 <!--
 So now i think it is clear to everyone what i mean with categorize.
-Perfect. Now I would like to go one step back to emphasize the advantages to work with so many branches either it looks a lot. I think it is important to understand it and realizes also the advantages that it brings in terms of speed. 
+Perfect. Now I would like to go one step back to emphasize the advantages to work with so many branches either it looks a lot. I think it is important to understand it and realizes also the advantage that it brings in terms of speed. 
 -->
 
 ---
@@ -181,17 +189,17 @@ Perfect. Now I would like to go one step back to emphasize the advantages to wor
 <ri-check-fill class="text-green-600 text-xl" /> Experimentation<br>
 
 <!--
-So the first one is very clear i think, if u work in separate branches ur code is isolated, so there can happen no side effects from other members and code changes. The main is every time stable and your team can also works on features. So Win win.
+So the first one is very clear i think, if u work in separate branches ur code is isolated, so there can happen no side effects from other members and their changes. So as i said before The main is every time stable and your team can also works on features. So Win win.
 
-Feature branches must be merged back in the main code, so anyone should look over ur code via PR and give feedback. Also other members can check out ur branch, can support u and commit changes only in ur branch.
+Feature branches must be merged back in the main code, so anyone should look over ur code via a PR and give feedback. Also other members can check out ur branch, can support u and commit changes only in ur branch.
 
-I think i explained it well in the previous point. But additional Code reviews helps to ensure the code quality and consistency of written code.
+I think i explained it well in the previous one. But additional, Code reviews helps to ensure the code quality and consistency of written code.
 
-Well i said it often before, u can work isolated and only for u. This approach also allows better organization and management because u can split anything locially in backend, frontend or what make sense.
+Well i said it often before, u can work isolated and only for u. This approach also allows better organization and management because u can split anything in backend, frontend or what even make sense.
 
 For Bugs u make a separate branch so it allows u to make change without disrupt the feature development.
 
-And last but not least, you don't have to worry aboout changes if u have a own experimentation branch.
+And last but not least, you don't have to worry about changes if u have a own experimentation branch.
 
 
 -->
@@ -207,7 +215,10 @@ A feature that allows devs to review and approve changes (pull request) made by 
 
 <!--
 So in other words a second pair of eyes looks at your code and give feedback. 
-I think that can be a separate topic, because there's a lot to be said about writing notes in code. So that the author doesn't feel offended. But however at another time perhaps so now we look to the advantages of tis system
+
+I think that point can be a separate topic, because there's a lot to be said or a lot what i can say from my past about writing good comments to code which another written. So that the author doesn't feel offended.
+
+But however, at another time so now we look to the advantages of this system
 -->
 
 ---
@@ -223,13 +234,13 @@ I think that can be a separate topic, because there's a lot to be said about wri
 <ri-check-fill class="text-green-600 text-xl" /> Continuous improvement<br>
 
 <!--
-So that the system requires a look from another on ur code, it helps to write high quality code and catching potential bugs early. Also a nice benefit is it improves code readability best practices and many more things.
+So that the system requires a look from another on ur code, helps a lot to write high quality code and catching potential bugs early. 
 
-The next point means u learn from another because u see code from another guy. I see MRs like a forum for discuss different approches, share insights and provide feedback to improve code.
+You learn from others because u see code from another guy with other knowledge level. Summarized I see MRs like a forum for discuss different approches, share insights and provide feedback to improve code. This is how i got to know the system
 
 I don't think I need to explain the next one.
 
-Risk mitigation means reviewers can identify bugs, edge cases or side effects and addresses them before merging.
+Risk mitigation means reviewers can identify bugs, edge cases or side effects and addresses them before merging. So also very clear i think
 
 The phrase in paretenthis means that a reviewer had a look if u you change only code within your scope and what the project requirements say and fulfills the acceptance criteria of the story/task whatever. So an appeal to you or a tip from me, keep the PRs small ;)
 
@@ -249,7 +260,7 @@ Commit messages follow a structured format that conveys meaningful information a
 </div>
 
 <!--
-As in the Categorize branches chapter, the division rule also applies here but in a modified way. And it highly depends on a team agreement. So this is only an example.
+And again we categorize our names in this case the commit messages.
 -->
 
 ---
@@ -265,9 +276,8 @@ layout: cover
 <span class="bg-gray-100 text-blue-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded">test (adding or modifying test)</span>
 <span class="bg-gray-100 text-orange-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded">core (other changes related to build e.g. maintenance tasks</span>
 
-
 <!--
-And again we categorize our names in this case the commit messages.
+As in the Categorize branches chapter, the division rule also applies here but in a modified way. And it highly depends on a team agreement what are the types. So this is only an example.
 -->
 
 ---
@@ -284,7 +294,7 @@ layout: cover
 </div>
 
 <!--
-So every message have a structure as following. On the next slide u see an example how it could look like.
+So every message have a structure as following. On the next slide I show you an example how it could look like.
 -->
 
 ---
@@ -337,7 +347,7 @@ Tags are like a snapshot feature to mark a specific point, denote a milestone or
 9. Cleanup - delete merged feature branches
 
 <!--
-So now i talked so much that u forget the proceed. So here a short example or a summary
+So now i talked so much that u forget the proceed. So here is a short example a summary.
 -->
 
 ---
@@ -355,7 +365,9 @@ So now i talked so much that u forget the proceed. So here a short example or a 
 9. Final testing
 10. Release
 
-
+<!--
+And last but not least an example of the way on rc.
+-->
 
 ---
 layout: end
